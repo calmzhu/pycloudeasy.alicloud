@@ -1,0 +1,41 @@
+name: ci
+
+# Controls when the workflow will run
+on:
+  push:
+    branches:
+      - '*'
+  workflow_dispatch:
+
+jobs:
+  ci:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ ubuntu ]
+        python-version: [ '3.8','3.9','3.10','3.11','3.12' ]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Setup poetry
+        run: |
+          pip install poetry==1.7
+          poetry config pypi-token.pypi ${{ secrets.PYPI_TOKEN }}
+      - name: Install the project dependencies
+        run: |
+          poetry install
+      - name: Pytest
+        env:
+          AliCloud_AK: ${{ secrets.AliCloud_AK }}
+          AliCloud_SK: ${{ secrets.AliCloud_SK }}
+          AliCloud_Account: ${{ secrets.AliCloud_Account }}
+          AliCloud_TEST_DOMAIN: ${{ secrets.AliCloud_TEST_DOMAIN }}
+        run: poetry run pytest
+      - name: publish
+        if: github.ref == 'refs/heads/main'
+        run: |
+          poetry build 
+          poetry publish
