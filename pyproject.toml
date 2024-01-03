@@ -17,9 +17,9 @@ pytest-ordering = "^0.6"
 
 
 [[tool.poetry.source]]
-name = "cn"
+name = "mirror"
 url = "https://mirrors.aliyun.com/pypi/simple"
-priority = "primary"
+priority = "supplemental"
 
 [build-system]
 requires = ["poetry-core"]
