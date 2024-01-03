@@ -13,7 +13,7 @@ jobs:
     strategy:
       matrix:
         os: [ ubuntu-latest ]
-        python-version: ['3.10','3.11','3.12' ]
+        python-version: [ '3.10','3.11','3.12' ]
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python
@@ -35,6 +35,7 @@ jobs:
           AliCloud_TEST_DOMAIN: ${{ secrets.AliCloud_TEST_DOMAIN }}
         run: poetry run pytest
   deploy:
+    needs: [ ci ]
     runs-on: ubuntu-latest
     steps:
       - name: publish
