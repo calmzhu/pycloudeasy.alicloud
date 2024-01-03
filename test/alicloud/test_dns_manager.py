@@ -59,6 +59,7 @@ class TestDnsManager:
                response['Value'] == '127.0.0.2' and \
                response['RecordId'] == record_id
 
+    @pytest.mark.run('last')
     def test_delete_resource_record(self, dns_manager, cache):
         record_id = cache.get("test_record", None)
         assert record_id is not None
