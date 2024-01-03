@@ -39,7 +39,14 @@ jobs:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     steps:
-      - name: publish
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.12
+      - name: publish via poetry
         run: |
+          pip install poetry==1.7
+          poetry config pypi-token.pypi ${{ secrets.PYPI_TOKEN }}
           poetry build 
           poetry publish
