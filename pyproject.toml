@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "pycloudeasy"
+name = "cloudeasy.alicloud"
 version = "0.1.0"
 description = "Some proxy for alicloud operation based on raw alicloud tea api"
 authors = ["Calm Zhu <zhuqian@yirenchengtuan.com>"]
