@@ -9,6 +9,7 @@ packages = [{ include = "cloudeasy" }]
 [tool.poetry.dependencies]
 python = "^3.8"
 alibabacloud-tea-openapi = "^0.3.8"
+aiohttp ="^3.9.0"
 
 
 [tool.poetry.group.dev.dependencies]
