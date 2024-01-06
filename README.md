@@ -1,8 +1,10 @@
-# cloudeasy.alicloud
+# cloudeasy
 
 ## Description
 
-A Friendly alicloud sdk based on raw alicloud tea api.
+A Friendly sdk based on raw api for
+- alibaba cloud
+- github
 
 ## Install
 
@@ -10,4 +12,4 @@ pip install cloudeasy
 
 ## Usage:
 
-See test case for examples
+See [test case](https://github.com/calmzhu/pycloudeasy/tree/main/test) for examples
