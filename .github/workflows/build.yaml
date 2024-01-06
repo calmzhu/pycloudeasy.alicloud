@@ -1,4 +1,4 @@
-name: ci
+name: build
 
 # Controls when the workflow will run
 on:
@@ -39,7 +39,12 @@ jobs:
           GH_PAT: ${{ secrets.GH_ADMIN_PAT }}
           GH_TEST_ORG: ${{ vars.GH_TEST_ORG }}
           GH_TEST_REPO: ${{ github.repository }}
-        run: poetry run pytest
+        run: poetry run pytest --cov --cov-report json
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        if: matrix.python-version == '3.12'
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
   call_release_flow:
     needs: [ ci ]
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'

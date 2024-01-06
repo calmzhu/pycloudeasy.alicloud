@@ -2,3 +2,5 @@
 *.pyc
 /dist/**
 /poetry.lock
+.coverage
+coverage.json
