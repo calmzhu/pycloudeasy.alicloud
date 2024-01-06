@@ -43,4 +43,6 @@ jobs:
   call_release_flow:
     needs: [ ci ]
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-    uses: ./.github/workflows/deploy.yaml
+    uses: ./.github/workflows/release.yaml
+    secrets: inherit
+    # https://docs.github.com/en/actions/using-workflows/reusing-workflows#passing-secrets-to-nested-workflows

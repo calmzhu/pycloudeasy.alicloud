@@ -17,5 +17,5 @@ jobs:
           python-version: 3.12
       - name: Check if version already existed
         run: |
-          pip install requests
+          pip install requests >/dev/null
           python .github/workflows/check-version.py
