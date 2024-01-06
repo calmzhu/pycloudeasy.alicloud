@@ -6,7 +6,7 @@ on:
     branches:
       - '*'
   workflow_dispatch:
-
+permissions: write-all
 jobs:
   ci:
     runs-on: ${{ matrix.os }}
@@ -33,6 +33,9 @@ jobs:
           AliCloud_SK: ${{ secrets.AliCloud_SK }}
           AliCloud_Account: ${{ secrets.AliCloud_Account }}
           AliCloud_TEST_DOMAIN: ${{ secrets.AliCloud_TEST_DOMAIN }}
+          GH_PAT: ${{ secrets.GITHUB_TOKEN }}
+          GH_TEST_ORG: ${{ var.GH_TEST_ORG }}
+          GH_TEST_REPO: ${{ github.repository }}
         run: poetry run pytest
   deploy:
     needs: [ ci ]

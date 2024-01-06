@@ -6,7 +6,7 @@ A Friendly alicloud sdk based on raw alicloud tea api.
 
 ## Install
 
-pip install cloudeasy.alicloud
+pip install cloudeasy
 
 ## Usage:
 
