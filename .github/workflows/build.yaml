@@ -4,9 +4,12 @@ name: ci
 on:
   push:
     branches:
-      - '*'
-  workflow_dispatch:
-
+      - 'main'
+  pull_request_target:
+    branches:
+      - 'main'
+  workflow_dispatch: {}
+permissions: write-all
 jobs:
   ci:
     runs-on: ${{ matrix.os }}
@@ -33,6 +36,9 @@ jobs:
           AliCloud_SK: ${{ secrets.AliCloud_SK }}
           AliCloud_Account: ${{ secrets.AliCloud_Account }}
           AliCloud_TEST_DOMAIN: ${{ secrets.AliCloud_TEST_DOMAIN }}
+          GH_PAT: ${{ secrets.GH_ADMIN_PAT }}
+          GH_TEST_ORG: ${{ vars.GH_TEST_ORG }}
+          GH_TEST_REPO: ${{ github.repository }}
         run: poetry run pytest
   deploy:
     needs: [ ci ]
