@@ -34,7 +34,7 @@ jobs:
           AliCloud_Account: ${{ secrets.AliCloud_Account }}
           AliCloud_TEST_DOMAIN: ${{ secrets.AliCloud_TEST_DOMAIN }}
           GH_PAT: ${{ secrets.GITHUB_TOKEN }}
-          GH_TEST_ORG: ${{ var.GH_TEST_ORG }}
+          GH_TEST_ORG: ${{ vars.GH_TEST_ORG }}
           GH_TEST_REPO: ${{ github.repository }}
         run: poetry run pytest
   deploy:
