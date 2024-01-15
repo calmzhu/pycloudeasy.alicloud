@@ -5,9 +5,15 @@ on:
   push:
     branches:
       - 'main'
+    paths-ignore:
+      - '.github/**'
+      - '.pre-commit-config.yaml'
   pull_request_target:
     branches:
       - 'main'
+    paths-ignore:
+      - '.github/**'
+      - '.pre-commit-config.yaml'
   workflow_dispatch: { }
 permissions: write-all
 jobs:

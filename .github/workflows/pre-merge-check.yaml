@@ -3,9 +3,15 @@ on:
   push:
     branches:
       - 'main'
+    paths-ignore:
+      - '.github/**'
+      - '.pre-commit-config.yaml'
   pull_request_target:
     branches:
       - 'main'
+    paths-ignore:
+      - '.github/**'
+      - '.pre-commit-config.yaml'
 jobs:
   pre-merge-check:
     runs-on: ubuntu-latest
