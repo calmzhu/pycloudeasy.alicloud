@@ -13,7 +13,7 @@ class Intersection(BaseModel, Generic[L, R]):
     intersection: List[Tuple[L, R]]
 
     def __bool__(self):
-        return len(self.l) + len(self.r) != 0
+        return len(self.intersection) > 0
 
 
 def intersect(left: Iterable[L], right: Iterable[R], compare: Callable[[L, R], bool] = lambda x, y: x == y) -> Intersection[L, R]:
