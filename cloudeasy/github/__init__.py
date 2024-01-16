@@ -1,3 +1,5 @@
-from .github_client import GithubClient
+from .session import Session
 
-__all__ = ['GithubClient']
+__all__ = [
+    'Session'
+]

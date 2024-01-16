@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "cloudeasy"
-version = "0.1.4"
+version = "0.1.5"
 description = "Some proxy for alicloud operation based on raw alicloud tea api"
 authors = ["Calm Zhu <zhuqian@yirenchengtuan.com>"]
 license = "MIT"
@@ -13,6 +13,7 @@ alibabacloud-tea-openapi = "^0.3.8"
 aiohttp = "^3.9.0"
 requests = "^2.31.0"
 pynacl = "^1.5.0"
+pip = "^23.3.2"
 
 
 [tool.poetry.group.dev.dependencies]
