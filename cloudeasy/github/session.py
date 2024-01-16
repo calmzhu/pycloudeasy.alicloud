@@ -41,7 +41,7 @@ class Session:
             case _:
                 data = _req.json()
                 logger.error(_req)
-                raise Exception(f"failed to access {_req.url}: {data['message']},see {data['documentation_url']}")
+                raise Exception(f"failed to access \"{_req.url}\", {data['message']},see {data['documentation_url']}")
 
     def get(self, path, **kwargs):
         return self._request('GET', path, **kwargs)
