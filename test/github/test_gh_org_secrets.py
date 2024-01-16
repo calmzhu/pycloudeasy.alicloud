@@ -5,9 +5,9 @@ import pytest
 from cloudeasy.github.manager import OrgSecret
 
 
-@pytest.fixture(scope="session")
-def org_secret():
-    return OrgSecret(os.environ['GH_PAT'])
+@pytest.fixture(scope="function")
+def org_secret(pat):
+    return OrgSecret(pat)
 
 
 @pytest.fixture(scope="session")

@@ -1,4 +1,8 @@
+import logging
+
 import requests
+
+logger = logging.getLogger(__name__)
 
 
 class Session:
@@ -36,7 +40,8 @@ class Session:
                 return True
             case _:
                 data = _req.json()
-                raise Exception(f"{data['message']}: {data['documentation_url']}")
+                logger.error(_req)
+                raise Exception(f"failed to access {_req.url}: {data['message']},see {data['documentation_url']}")
 
     def get(self, path, **kwargs):
         return self._request('GET', path, **kwargs)

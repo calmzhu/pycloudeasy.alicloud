@@ -1,13 +1,11 @@
-import os
-
 import pytest
 
 from cloudeasy.github.manager import User
 
 
-@pytest.fixture(scope="session")
-def user():
-    return User(os.environ['GH_PAT'])
+@pytest.fixture(scope="function")
+def user(pat):
+    return User(pat)
 
 
 class TestUser:

@@ -5,7 +5,7 @@ import pytest
 from cloudeasy.github.gh_app_oauth import GithubAppOAuth
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="module")
 def gh_oauth_client():
     return GithubAppOAuth(
         client_id=os.environ['GITHUB_APP_CLIENT_ID'],

@@ -2,22 +2,12 @@ import os
 
 import pytest
 
-from cloudeasy.github.manager import RepoSecret, OrgSecret
+from cloudeasy.github.manager import RepoSecret
 
 
-@pytest.fixture(scope="session")
-def repo_secret():
-    return RepoSecret(os.environ['GH_PAT'])
-
-
-@pytest.fixture(scope="session")
-def org_secret():
-    return OrgSecret(os.environ['GH_PAT'])
-
-
-@pytest.fixture(scope="session")
-def gh_org():
-    return os.environ['GH_TEST_ORG']
+@pytest.fixture(scope="function")
+def repo_secret(pat):
+    return RepoSecret(pat)
 
 
 @pytest.fixture(scope="session")
@@ -68,9 +58,3 @@ class TestGithubRepoSecrets:
         x = repo_secret.list_repo_secrets(*gh_repo)
         cache.set("SECRET_NAME", x["secrets"][0]['name'])
         assert bool(cache.get("SECRET_NAME", None)) is True
-
-
-class TestGithubOrgSecrets:
-    def test_list_org_secrets(self, org_secret, gh_org):
-        x = org_secret.list_organization_secrets(gh_org)
-        assert 'secrets' in x
