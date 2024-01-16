@@ -73,4 +73,4 @@ class TestGithubRepoSecrets:
 class TestGithubOrgSecrets:
     def test_list_org_secrets(self, org_secret, gh_org):
         x = org_secret.list_organization_secrets(gh_org)
-        print(x)
+        assert 'secrets' in x

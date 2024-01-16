@@ -20,6 +20,8 @@ jobs:
   ci:
     runs-on: ${{ matrix.os }}
     strategy:
+      # limit parallel to avoid ip call limit
+      max-parallel: 1
       matrix:
         os: [ ubuntu-latest ]
         python-version: [ '3.10','3.11','3.12' ]
