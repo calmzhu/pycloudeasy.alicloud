@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "cloudeasy"
-version = "0.1.6"
+version = "0.2.0"
 description = "Some proxy for alicloud operation based on raw alicloud tea api"
 authors = ["Calm Zhu <zhuqian@yirenchengtuan.com>"]
 license = "MIT"

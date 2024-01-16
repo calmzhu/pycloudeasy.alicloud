@@ -46,6 +46,7 @@ jobs:
           AliCloud_SK: ${{ secrets.AliCloud_SK }}
           AliCloud_Account: ${{ secrets.AliCloud_Account }}
           AliCloud_TEST_DOMAIN: ${{ secrets.AliCloud_TEST_DOMAIN }}
+          AliCloud_ECS_SG: ${{ vars.ALICLOUD_ECS_SG }}
           GH_PAT: ${{ secrets.GH_ADMIN_PAT }}
           GH_TEST_ORG: ${{ vars.GH_TEST_ORG }}
           GH_TEST_REPO: ${{ github.repository }}
