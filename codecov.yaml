@@ -7,3 +7,5 @@ coverage:
     project:
       default:
         target: auto    # the required coverage value
+ignore:
+  - "test"

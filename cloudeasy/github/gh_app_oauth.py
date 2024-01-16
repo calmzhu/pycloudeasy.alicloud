@@ -45,4 +45,3 @@ class GithubAppOAuth:
         return access_response.json()
 
         return token
-

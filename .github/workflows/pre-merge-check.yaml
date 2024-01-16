@@ -6,12 +6,14 @@ on:
     paths-ignore:
       - '.github/**'
       - '.pre-commit-config.yaml'
+      - 'codecov.yaml'
   pull_request_target:
     branches:
       - 'main'
     paths-ignore:
       - '.github/**'
       - '.pre-commit-config.yaml'
+      - 'codecov.yaml'
 jobs:
   pre-merge-check:
     runs-on: ubuntu-latest
