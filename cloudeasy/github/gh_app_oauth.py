@@ -43,5 +43,3 @@ class GithubAppOAuth:
             "code": code
         }, headers=self.gh_headers)
         return access_response.json()
-
-        return token

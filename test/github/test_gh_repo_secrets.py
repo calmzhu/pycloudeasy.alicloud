@@ -2,12 +2,12 @@ import os
 
 import pytest
 
-from cloudeasy.github.manager import RepoSecret
+from cloudeasy.github.manager import GithubRepoSecretManager
 
 
 @pytest.fixture(scope="function")
 def repo_secret(pat):
-    return RepoSecret(pat)
+    return GithubRepoSecretManager(pat)
 
 
 @pytest.fixture(scope="session")

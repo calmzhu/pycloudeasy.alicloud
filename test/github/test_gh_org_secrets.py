@@ -2,12 +2,12 @@ import os
 
 import pytest
 
-from cloudeasy.github.manager import OrgSecret
+from cloudeasy.github.manager import OrgSecretManager
 
 
 @pytest.fixture(scope="function")
 def org_secret(pat):
-    return OrgSecret(pat)
+    return OrgSecretManager(pat)
 
 
 @pytest.fixture(scope="session")

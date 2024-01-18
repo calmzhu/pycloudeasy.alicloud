@@ -1,4 +1,4 @@
-from .secret import RepoSecret, OrgSecret
-from .user import User
+from .secret import GithubRepoSecretManager, OrgSecretManager
+from .user import GitHubUserManager
 
-__all__ = ['RepoSecret', 'OrgSecret', 'User']
+__all__ = ['GithubRepoSecretManager', 'OrgSecretManager', 'GitHubUserManager']

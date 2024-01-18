@@ -25,7 +25,7 @@ def secret_encrypt(public_key: str, secret_value: str) -> str:
     return b64encode(encrypted).decode("utf-8")
 
 
-class RepoSecret(Session):
+class GithubRepoSecretManager(Session):
 
     def list_repo_secrets(self, owner, repo_name):
         return self.get(f"repos/{owner}/{repo_name}/actions/secrets")
@@ -52,6 +52,6 @@ class RepoSecret(Session):
         return self.put_repo_secrets(owner, repo_name, secret_name, secret_value, public_key['key_id'], public_key['key'])
 
 
-class OrgSecret(Session):
+class OrgSecretManager(Session):
     def list_organization_secrets(self, org_name):
         return self.get(f"orgs/{org_name}/actions/secrets")

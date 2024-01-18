@@ -1,7 +1,7 @@
 from cloudeasy.github.session import Session
 
 
-class User(Session):
+class GitHubUserManager(Session):
 
     def get_user_profile(self):
         return self.get("user")

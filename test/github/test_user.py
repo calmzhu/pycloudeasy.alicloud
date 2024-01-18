@@ -1,11 +1,11 @@
 import pytest
 
-from cloudeasy.github.manager import User
+from cloudeasy.github.manager import GitHubUserManager
 
 
 @pytest.fixture(scope="function")
 def user(pat):
-    return User(pat)
+    return GitHubUserManager(pat)
 
 
 class TestUser:
